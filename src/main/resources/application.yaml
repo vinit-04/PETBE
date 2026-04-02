@@ -1,0 +1,44 @@
+spring:
+  application:
+    name: PersonalExpenseTracker
+  sql:
+    init:
+      mode: always
+  jpa:
+    database: POSTGRESQL
+    show-sql: true
+    defer-datasource-initialization: true
+    hibernate:
+      ddl-auto: update
+
+#(Local database settings)
+#  datasource:
+#    platform: postgres
+#    url: jdbc:postgresql://localhost:5432/petdb
+#    username: postgres
+#    password: admin
+#    driverClassName: org.postgresql.Driver
+
+#  (AWS rds settings)
+  datasource:
+    platform: postgres
+    url: jdbc:postgresql://petdb.cxieea22c8mi.us-east-2.rds.amazonaws.com:5432/petdb
+    username: postgres
+    password: PETDB!!##
+    driverClassName: org.postgresql.Driver
+
+  security:
+    user:
+      name: admin
+      password: admin
+
+  jackson:
+    deserialization:
+      fail-on-unknown-properties: true
+
+jwt:
+  secret: "0dnkeLA0HBodz205u0+695Iz+TPISMni8ZQRKOiQZoI="
+  expiration-in-ms: 99999999999
+
+server:
+  port: 9090
