@@ -24,9 +24,9 @@ VALUES (
 
 INSERT INTO categories (name, category_color, icon, is_default, user_id)
 VALUES
-    ('FOOD', 'hsl(210, 80%, 55%)', NULL, true, NULL),
-    ('TRANSPORT', 'hsl(210, 80%, 55%)', NULL, true, NULL),
-    ('ENTERTAINMENT', 'hsl(210, 80%, 55%)', NULL, true, NULL),
-    ('BILLS', 'hsl(210, 80%, 55%)', NULL, true, NULL),
-    ('OTHERS', 'hsl(210, 80%, 55%)', NULL, true, NULL)
+    ('FOOD', 'hsl(0, 70%, 55%)', NULL, true, NULL),
+    ('TRANSPORT', 'hsl(160, 60%, 45%)', NULL, true, NULL),
+    ('ENTERTAINMENT', 'hsl(24, 80%, 55%)', NULL, true, NULL),
+    ('BILLS', 'hsl(45, 80%, 50%)', NULL, true, NULL),
+    ('OTHERS', 'hsl(120, 50%, 45%)', NULL, true, NULL)
     ON CONFLICT DO NOTHING;

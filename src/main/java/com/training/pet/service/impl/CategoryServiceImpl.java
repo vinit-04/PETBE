@@ -26,6 +26,17 @@ public class CategoryServiceImpl implements CategoryService {
     private static final List<String> DEFAULT_CATEGORIES =
             List.of("Food", "Transportation", "Entertainment", "Bills", "Others");
 
+    private static String defaultColorForCategory(String categoryName) {
+        return switch (categoryName.toUpperCase()) {
+            case "FOOD" -> "hsl(0, 70%, 55%)";
+            case "TRANSPORT", "TRANSPORTATION" -> "hsl(160, 60%, 45%)";
+            case "ENTERTAINMENT" -> "hsl(24, 80%, 55%)";
+            case "BILLS" -> "hsl(45, 80%, 50%)";
+            case "OTHERS" -> "hsl(120, 50%, 45%)";
+            default -> DEFAULT_CATEGORY_COLOR;
+        };
+    }
+
     @Override
     public CategoryResponseDto create(CategoryRequestDto dto, Long userId) throws BadRequestException {
 
@@ -111,7 +122,7 @@ public class CategoryServiceImpl implements CategoryService {
         List<Category> categories = DEFAULT_CATEGORIES.stream()
                 .map(name -> Category.builder()
                         .name(name)
-                        .categoryColor(DEFAULT_CATEGORY_COLOR)
+                        .categoryColor(defaultColorForCategory(name))
                         .icon(null)
                         .isDefault(true)
                         .user(user)
